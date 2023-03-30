@@ -1,18 +1,18 @@
 import React from "react";
-import './styles.css'
 import { Link } from "react-router-dom";
+import './styles.css'
 const opciones = [
     {
-        nombre:'Home',
-        path:'/'
+        nombre: 'Home',
+        path: '/'
     },
     {
-        nombre:'About',
-        path:'/about/354'
+        nombre:'Personajes',
+        path:'/personajes'
     },
     {
-        nombre:'ADMIN',
-        path:'/admin'
+        nombre: 'Pagina de busqueda',
+        path:'/busqueda'
     }
 ]
 
@@ -21,11 +21,12 @@ function Navbar(){
         <nav>
         <ul className="main-nav">
             {
-                opciones.map((opcion, idx) => 
-                <Link to={`${opcion.path}`} key={opcion + idx}>
-                    {opcion.nombre}
-                </Link>)
-            }0
+                opciones.map((elm, idx) => <li>
+                    <Link to={elm.path}>
+                        {elm.nombre}
+                    </Link>
+                </li>)
+            }
         </ul>
         <ul className="user">
             <li>

@@ -8,7 +8,7 @@ import About from './screens/About/About';
 import Users from './screens/Users/Users';
 import Personajes from './screens/Personajes/Personajes';
 import UnPersonaje from './screens/UnPersonaje/UnPersonaje';
-import Buscador from './screens/Buscador/Buscador'
+import PaginaBuscador from './screens/PaginaBuscador/PaginaBuscador';
 import NotFound from './screens/NotFound/NotFound';
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path='/users' component={Users} />
           <Route path='/personajes' component={Personajes} />
           <Route path='/unpersonaje/id/:id' component={UnPersonaje}/>
-          <Route path ='/buscador' component={Buscador} />
+          <Route path='/busqueda' component={PaginaBuscador} />
           <Route component={NotFound} />
         </Switch>
       <Footer />

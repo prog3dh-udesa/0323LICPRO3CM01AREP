@@ -7,12 +7,12 @@ const opciones = [
         path: '/'
     },
     {
-        nombre:'About',
-        path: '/about'
+        nombre:'Personajes',
+        path:'/personajes'
     },
     {
-        nombre:'Users',
-        path:'/users'
+        nombre:'Buscador',
+        path:'/buscador'
     }
 ]
 
