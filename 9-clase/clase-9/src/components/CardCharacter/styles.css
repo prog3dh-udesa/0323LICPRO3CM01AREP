@@ -1,0 +1,7 @@
+p.hidden{
+    display: none;
+}
+
+p.show{
+    display: block;
+}
