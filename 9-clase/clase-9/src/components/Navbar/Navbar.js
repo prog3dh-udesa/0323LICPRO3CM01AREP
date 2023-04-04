@@ -13,6 +13,10 @@ const opciones = [
     {
         nombre: 'Pagina de busqueda',
         path:'/busqueda'
+    },
+    {
+        nombre:'Favoritos',
+        path: '/favoritos'
     }
 ]
 

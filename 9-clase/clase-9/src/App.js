@@ -9,6 +9,8 @@ import Users from './screens/Users/Users';
 import Personajes from './screens/Personajes/Personajes';
 import UnPersonaje from './screens/UnPersonaje/UnPersonaje';
 import PaginaBuscador from './screens/PaginaBuscador/PaginaBuscador';
+import Favoritos from './screens/Favoritos/Favoritos';
+
 import NotFound from './screens/NotFound/NotFound';
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route path='/personajes' component={Personajes} />
           <Route path='/unpersonaje/id/:id' component={UnPersonaje}/>
           <Route path='/busqueda' component={PaginaBuscador} />
+          <Route path='/favoritos' component={Favoritos} />
           <Route component={NotFound} />
         </Switch>
       <Footer />
