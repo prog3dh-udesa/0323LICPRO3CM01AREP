@@ -13,12 +13,21 @@ class Buscador extends Component {
         event.preventDefault()
     }
 
+    metodoQueFiltra(infoAFiltrar, valorDelInput){
+        let filtrado = infoAFiltrar.filter(
+            elm => elm.name.toLowerCase().includes(valorDelInput.toLowerCase())
+        )
+        return filtrado
+    }
+
     guardarValor(event){
         this.setState(
             {
                 valorInput:event.target.value
             },
-            ()=> console.log(`Este es el estado que ve el setState extendido: ${this.state.valorInput}`)
+            ()=> this.props.metodoQueActualiza(
+                    this.metodoQueFiltra(this.props.info, event.target.value)
+                )
         )
     }
 

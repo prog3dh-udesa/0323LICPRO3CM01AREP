@@ -1,25 +1,17 @@
 import React, {Component} from 'react'
-import Card from '../Card/Card'
 import CardRickMorty from '../CardRickMorty/CardRickMorty'
-
+import Buscador from '../Buscador/Buscador'
 class ContenedorRickMorty extends Component{
     //1 que se ejecuta
     constructor(props){
         super(props)
         this.state={
             numero:1,
-            personajes:[]
+            personajes:[],
+            backup:[]
         }
     }
     //3 que se ejecuta
-    componentDidMount(){
-        fetch('https://rickandmortyapi.com/api/character')
-        .then(res => res.json())
-        .then(data => this.setState({
-            personajes: data.results
-        }))
-        .catch(err => console.log(err))
-    }
 
     //5 que se ejecuta tras ocurrir actualización
     componentDidUpdate(){
@@ -46,9 +38,9 @@ class ContenedorRickMorty extends Component{
             <div>
                 <h1>Aqui tendremos algo genial de Rick y Morty</h1>
                 {
-                    this.state.personajes.length <= 0 ?
+                    this.props.personajes.length <= 0 ?
                     <h2>Trayendo personajes...</h2> :
-                    this.state.personajes.map(personaje => <article>
+                    this.props.personajes.map(personaje => <article>
                         <CardRickMorty info={personaje} />
                     </article>)
                 }

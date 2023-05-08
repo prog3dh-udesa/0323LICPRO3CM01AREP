@@ -17,6 +17,10 @@ const opciones = [
     {
         nombre:'Favoritos',
         path: '/favoritos'
+    },
+    {
+        nombre:'Deezer',
+        path: '/deezer'
     }
 ]
 
