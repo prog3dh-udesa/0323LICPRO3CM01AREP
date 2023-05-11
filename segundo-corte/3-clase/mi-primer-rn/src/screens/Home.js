@@ -64,6 +64,7 @@ class Home extends Component{
                     style={styles.img}
                     resizeMode='contain'
                 />
+
                 <FlatList
                     data={arrayDeDatos}
                     keyExtractor={(item) => item.id.toString()}
