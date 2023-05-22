@@ -1,8 +1,8 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Touchable } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
 import {auth} from '../firebase/config'
 
-class FormRegister extends Component {
+class FormRegisterOLD extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -13,15 +13,13 @@ class FormRegister extends Component {
 
     registrarUsuario(mail, password){
         auth.createUserWithEmailAndPassword(mail, password)
-        .then( data => {
-            auth.onAuthStateChanged(user => {
-                if(user){
-                    this.props.navigation.navigate('HomeNav')
-                } else {
-                    this.props.navigation.navigate('Login')
-                }
-            })
-        })
+        .then( data => console.log(data))
+        .catch(err => console.log(err))
+    }
+
+    loguearUsuario(email, password){
+        auth.signInWithEmailAndPassword(email, password)
+        .then(data => console.log(data))
         .catch(err => console.log(err))
     }
 
@@ -48,6 +46,17 @@ class FormRegister extends Component {
         >
             <Text style={styles.btnText}>Registrar mi usuario</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+            style={styles.btn}
+            onPress={()=> this.loguearUsuario(this.state.inputMail, this.state.inputPassword)}
+        >
+            <Text style={styles.btnText}>Loguear mi usuario</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+        style={styles.btn}
+        onPress={()=> this.props.navigation.navigate('Home')}>
+            <Text>Estoy desde el componente FormRegisterOLD</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -62,7 +71,7 @@ const styles = StyleSheet.create({
         padding:5
     },
     btn:{
-        marginVertical:32,
+        marginTop:32,
         backgroundColor: '#54d0e0',
         padding: 10,
         borderRadius:20,
@@ -74,4 +83,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default FormRegister
+export default FormRegisterOLD
