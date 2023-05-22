@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { AntDesign } from '@expo/vector-icons';
 
 import Home from '../screens/Home'
+import Feed from '../screens/Feed';
 import Profile from '../screens/Profile'
 import NewPosts from '../screens/NewPosts';
 
@@ -13,8 +14,8 @@ export default function Ho24meNav() {
   return (
     <Tab.Navigator>
         <Tab.Screen 
-        name='Home' 
-        component={Home}
+        name='Feed' 
+        component={Feed}
         options={{
             headerShown:false,
             tabBarIcon: () => 
