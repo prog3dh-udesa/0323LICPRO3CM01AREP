@@ -1,8 +1,8 @@
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { Component } from 'react'
 import FormPost from '../components/FormPost'
-import CameraPost from '../components/CameraPost'
 import { db, auth } from '../firebase/config'
+import CamaraPost from '../components/CamaraPost'
 
 class NewPosts extends Component {
     constructor(props){
@@ -21,9 +21,9 @@ class NewPosts extends Component {
         })
     }
 
-    actualizarFoto(url){
+    actualizarEstadoFoto(urlFoto){
         this.setState({
-            foto: url
+            foto: urlFoto
         })
     }
 
@@ -47,8 +47,14 @@ class NewPosts extends Component {
         return (
         <View style={styles.container}>
             {
-                this.state.foto !== '' ?
-                <View>
+                this.state.foto === '' ?
+                <CamaraPost
+                    actualizarEstadoFoto={
+                        (urlFoto)=> this.actualizarEstadoFoto(urlFoto)
+                    }
+                />
+                :
+                <>
                     <FormPost stateDescripcion={this.state.descripcion} actualizarDescripcion={(text) => this.actualizarDescripcion(text) } />
                     <TouchableOpacity
                         onPress={()=> this.crearPosteo({
@@ -60,9 +66,8 @@ class NewPosts extends Component {
                     >
                         <Text>Enviar el posteo</Text>
                     </TouchableOpacity>
-                </View>
-                :
-                <CameraPost actualizarFoto={(url)=> this.actualizarFoto(url)} />
+                </>
+                
             }
         </View>
         )
@@ -71,7 +76,7 @@ class NewPosts extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
+        flex:1
     }
 })
 
