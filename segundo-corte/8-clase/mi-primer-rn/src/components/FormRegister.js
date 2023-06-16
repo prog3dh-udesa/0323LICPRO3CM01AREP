@@ -17,12 +17,14 @@ export default class FormRegister extends Component {
     registrarUsuario(mail, password){
         auth.createUserWithEmailAndPassword(mail, password)
         .then( data => {
-            // this.czprops.navigation.navigate('HomeNav')
             db.collection('users').add({
                 owner:auth.currentUser.email,
                 createdAt: Date.now(),
             })
-            .then(resp => this.setState({registrado: true}))
+            .then(resp => {
+                this.setState({registrado: true})
+                this.props.navigation.navigate('HomeNav')
+            })
             .catch(err => console.log(err))
         })
         .catch(err => console.log(err))

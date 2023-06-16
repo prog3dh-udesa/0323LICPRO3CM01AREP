@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeNav from './src/navigation/Home';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login';
+import InfoAdicionalUser from './src/screens/InfoAdicionalUser';
 
 const Stack = createNativeStackNavigator()
 
@@ -30,6 +31,13 @@ export default function App() {
         <Stack.Screen 
         name='HomeNav' 
         component={HomeNav}
+        options={{
+          headerShown:false
+        }}
+        />
+        <Stack.Screen
+        name='InfoAdicionalUser'
+        component={InfoAdicionalUser}
         options={{
           headerShown:false
         }}
